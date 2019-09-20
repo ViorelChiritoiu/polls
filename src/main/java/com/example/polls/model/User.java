@@ -16,7 +16,7 @@ import java.util.Set;
 public class User extends DateAudit {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotBlank
@@ -24,7 +24,7 @@ public class User extends DateAudit {
     private String name;
 
     @NotBlank
-    @Size(max = 15)
+    @Size(max = 20)
     private String username;
 
     @NaturalId
@@ -37,7 +37,7 @@ public class User extends DateAudit {
     @Size(max = 100)
     private String password;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))

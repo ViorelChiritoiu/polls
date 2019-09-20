@@ -13,7 +13,7 @@ public class PollRequest {
     private String question;
 
     @NotNull
-    @Size(min = 2, max = 6)
+    @Size(min = 1, max = 6)
     @Valid
     private List<ChoiceRequest> choices;
 

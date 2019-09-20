@@ -10,6 +10,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,7 +19,7 @@ import java.util.List;
 public class Poll extends UserDateAudit {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotBlank
@@ -29,7 +30,7 @@ public class Poll extends UserDateAudit {
     @Size(min = 2, max = 6)
     @Fetch(FetchMode.SELECT)
     @BatchSize(size = 30)
-    private List<Choice> choices;
+    private List<Choice> choices = new ArrayList<>();
 
     @NotNull
     private Instant expirationDateTime;

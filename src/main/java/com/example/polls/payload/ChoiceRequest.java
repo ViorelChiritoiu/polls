@@ -5,12 +5,16 @@ import javax.validation.constraints.Size;
 
 public class ChoiceRequest {
 
+
     @NotBlank
     @Size(max = 40)
     private String text;
 
     public String getText() {
         return text;
+    }
+
+    public ChoiceRequest() {
     }
 
     public void setText(String text) {
